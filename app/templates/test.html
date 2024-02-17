@@ -1,0 +1,21 @@
+<div class="card-body text-page-login">
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+      {{form.bearer.label(class='form-control-label')}} {% if form.bearer.errors
+      %} {{ form.bearer(class='form-control is-invalid')}} {% for error in
+      form.bearer.errors %}
+      <div class="invalid-feedback">
+        <span>{{error}}</span>
+      </div>
+      {% endfor %} {% else %} {{ form.bearer(class='form-control',
+      placeholder='bearer')}} {% endif %}
+    </div>
+    <div class="text-center">{{form.submit(class='btn btn-primary')}}</div>
+    {% for campo, error in form.errors.items() %}
+    <div class="alert alert-danger" role="alert">
+      {{form[campo].label}}:{{''.join(error)}}
+    </div>
+    {% endfor %}
+  </form>
+</div>

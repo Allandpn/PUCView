@@ -1,0 +1,48 @@
+:root {
+    --text-login-title: rgb(71, 96, 148);
+    --text-login-header: rgb(96, 96, 102);
+  
+}
+
+
+html {
+  min-height: 100%;
+  background-image: url('assets/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+body {
+    display: inline-block;
+    width: 100%;
+    height: 0px;
+}
+
+
+.title-site {
+  font-size: 2.7rem;
+  color: var(--text-login-title);
+}
+
+.icon-graduation{
+  font-size: 1.7rem;
+  color: var(--text-login-title);
+}
+
+.text-card-header {
+  color: var(--text-login-header);
+}
+
+.text-page-login {
+  color: var(--text-login-header);
+  text-decoration: none;
+}
+
+.login-footer {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+  }
+

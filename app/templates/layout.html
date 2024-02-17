@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" />
+  </head>
+  <body>
+    <main class="d-flex">
+      <aside>
+        <div
+          class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark"
+          id="nav-menu-main"
+          style="width: 250px; height: 100vh"
+        >
+          <div          
+            class="d-flex  mb-3 mb-md-0  text-white justify-content-center"
+          >
+          <i class="fa-solid fa-2x fa-graduation-cap mr-4">            
+          </i>
+            <span class="fs-4">PUCView</span>
+          </div>
+          <hr />
+          <ul class="nav nav-menu-link flex-column mb-auto">
+            <li class="nav-item">
+              <a
+                href="{{url_for('home', state='active')}}"
+                id="state-page-active"
+                class="nav-link text-white"
+                aria-current="page"
+                data-target="active-link"
+              >
+                Período Atual
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="{{url_for('home', state='completed')}}"
+                id="state-page-completed"
+                class="nav-link text-white"
+                aria-current="page"
+                data-target="completed-link"
+              >
+                Períodos Anteriores
+              </a>
+            </li>
+            <hr>
+            <!--<li class="nav-item">
+              <a
+                href="#"
+                id="state-page-group"
+                class="nav-link text-white"
+                aria-current="page"
+                data-target="group-link"
+              >
+                Grupos
+              </a>
+            </li>-->
+          </ul>
+          <hr />
+          <small class="text-center">versão 1.1</small>
+        </div>
+      </aside>
+      <section style="width: 100%">
+        <div class="">
+          <nav
+            class="navbar navbar-expand-lg bg-body-tertiary border-bottom justify-content-between p-4"
+            style="width: 100%; height: 70px"
+          >
+            <!-- Contenedor izquierdo -->
+            <div class="h4 text-muted nav-item" id="title-page-p-atual">
+              {{user['name']}}
+            </div>
+
+            <!-- Contenedor derecho con el dropdown alineado a la derecha -->
+            <div class="dropdown ml-auto">
+              <a
+                href="#"
+                class="text-muted dropdown-toggle"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                style="margin-right: 90px"
+              >
+                <img
+                  src="{{user['avatar_url']}}"
+                  alt=""
+                  width="50"
+                  height="50"
+                  class="rounded-circle me-2"
+                />
+              </a>
+              <div
+                class="dropdown-menu dropdown-menu-dark text-small shadow"
+                aria-labelledby="dropdownMenuButton"
+              >
+                <a class="dropdown-item" href="{{url_for('logout')}}">Logout</a>
+              </div>
+            </div>
+          </nav>
+
+          <div id='spinner-content' class="text-center spinner-content">
+            <div id='spinner-item' class="spinner-border  spinner-item" role="status">
+              <span class="sr-only"></span>
+            </div>
+            <div class="">Carregando...</div>
+          </div>
+
+          {% block notas %}{% endblock %}
+        </div>
+      </section>
+    </main>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <script src="{{url_for('static', filename='main.js')}}"></script>
+    <script src="{{url_for('static', filename='utils.js')}}"></script>
+    <script
+      src="https://kit.fontawesome.com/074fbb8e37.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

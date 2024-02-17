@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <!-- Adicionando o Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{url_for('static', filename='login.css')}}" />
+</head>
+<body>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="container-fluid text-center alert alert-{{ category }}" style="width: inherit;">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %} 
+  <div class="container-fluid  mt-5" style="max-width: 1200px;">
+    <div class="row justify-content-center mb-3">
+      <div class="icon-graduation d-flex ">
+        <i class="fa-solid fa-2x fa-graduation-cap align-self-center">            
+        </i>
+      </div>
+      <div class="title-site">PUCView </div>
+    </div>       
+    
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header tex-center h5 text-card-header">
+              Login
+            </div>
+            <div class="card-body text-page-login">
+              
+                 <form method="POST" action="" >
+                  <!--{{ form.hidden_tag() }} -->
+                  {{ form.csrf_token }}   
+                <div class="form-group">
+                  {{form.token.label(class='form-control-label')}}
+                  {% if form.token.errors %}
+                    {{ form.token(class='form-control is-invalid')}}
+                      {% for error in form.token.errors %}
+                        <div class="invalid-feedback">
+                          <span>{{error}}</span>
+                        </div>
+                      {% endfor %}
+                  {% else %} 
+                    {{ form.token(class='form-control', placeholder='token')}} 
+                  {% endif %}                        
+                </div>
+                <div class="text-center">
+                  {{form.submit(class='btn btn-primary')}}
+                </div>
+                {% for campo, error in form.errors.items() %}
+                <div class="alert alert-danger" role="alert">
+                  {{form[campo].label}}:{{''.join(error)}}
+                </div>
+                {% endfor %}
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+  </div>
+  <footer class="login-footer mx-auto justify-content-center">
+    <div class="container col-md-4 text-center">
+      <hr>
+      <small class="text-center muted text-page-login">Desenvolvido por <a href="https://github.com/Allandpn">allandpn</a></small>
+    </div>
+  </footer>
+
+  <!-- Adicionando o Bootstrap JS (opcional, se necessário) -->
+  <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/074fbb8e37.js"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>

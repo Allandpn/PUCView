@@ -1,0 +1,154 @@
+:root {
+  --text-login-title: rgb(71, 96, 148);
+  --text-login-header: rgb(96, 96, 102);
+  --card-title: rgb(71, 96, 148);
+  --card-title-hover: rgb(159, 174, 211);
+  --card-grade: #3a4d7a;
+  --card-grade-hover: rgb(137, 152, 189);
+  --rubric-header: #3a4d7a;
+  --rubric-header-hover: rgb(255, 255, 255);
+}
+
+.progress-bar {
+  --progress: 50;
+  height: 16px;
+  padding: 5px;
+  background-color: hsl(calc(44 * 1.2), 80%, 50%);
+  display: flex;
+  color: var(--card-grade);
+}
+
+.fa {
+  width: 15px;
+  height: 15px;
+  color: #cfcc12;
+}
+
+.fa-graduation-cap {
+  margin-right: 8px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  color: var(--card-title);
+  font-weight: bold;
+}
+
+.card-title:hover {
+  color: var(--card-title-hover);
+}
+
+.card-title-project {
+  font-size: 1.8rem;
+  color: var(--card-title);
+  font-weight: bold;
+}
+
+.card-title-project:hover {
+  color: var(--card-title-hover);
+}
+
+.card-grade-item {
+  color: var(--card-grade);
+}
+
+.card-grade-item:hover {
+  color: var(--card-grade-hover);
+}
+
+.card-rubrics-header {
+  background-color: rgb(245, 245, 245);
+  border: none;
+}
+
+.card-rubrics-header:hover {
+  background-color: rgb(70, 113, 204);
+  border: none;
+}
+
+.rubric-percent {
+  font-weight: lighter;
+}
+
+.card-rubrics-header:hover .rubric-percent {
+  color: var(--rubric-header-hover);
+}
+
+.card-rubrics-header:hover button {
+  color: var(--rubric-header-hover);
+}
+
+.card-rubrics-header:has(.button-collapse[aria-expanded='true']) {
+  background-color: rgb(70, 113, 204);
+  color: var(--rubric-header-hover);
+}
+
+.button-collapse {
+  text-decoration: none;
+  color: var(--rubric-header);
+}
+
+.button-collapse[aria-expanded='true'] {
+  color: var(--rubric-header-hover);
+}
+
+.rubrics-title {
+  color: var(--card-title);
+  font-size: 1.4rem;
+}
+
+.card-project-grade svg {
+  height: 15rem;
+  margin: auto;
+  display: block;
+}
+
+.card-project-grade path {
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+.card-project-grade path.grey {
+  stroke: lightgrey;
+}
+
+.card-project-grade path.purple {
+  stroke: purple;
+  stroke-dasharray: calc(40 * 3.142 * 1.85);
+  stroke-dashoffset: 234;
+  /* adjust last number for variance */
+}
+
+.card-project-grade svg text {
+  fill: #3a4d7a;
+}
+
+.nav-menu-link li:hover {
+  background-color: rgba(110, 110, 110, 0.473);
+}
+
+.nav-menu-link li a:active {
+  background-color: rgba(203, 203, 211, 0.473);
+}
+
+.nav-menu-link-selected {
+  background-color: rgb(42, 60, 219);
+  border-radius: 5px;
+}
+
+.spinner-content {
+  position: fixed;
+  top: 50%;
+  left: 53%;
+  transform: translate(-50%, -50%);
+}
+
+.spinner-item {
+  width: 3rem;
+  height: 3rem;
+  color: purple;
+}

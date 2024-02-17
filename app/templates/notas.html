@@ -1,0 +1,30 @@
+{% extends "layout.html" %} {% block notas %}
+<div id='route-state' class=" d-none">{{state}}</div>
+
+
+<div class="">
+  <div class="row">
+    <div class="col-md-5 mr-0 pr-0">
+      <div class="container mr-0 pr-0">
+        <div
+          class="row ml-2 mr-0 cards py-4 pr-0 justify-content-center"
+          id="cards-course"
+        ></div>
+      </div>
+    </div>
+
+    <div class="col-md-7 ml-0 pl-0">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row px-0 mx-0 project-area pb-4" id="project-area"></div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="row ml-2 rubrics-area p-4 mt-3" id="rubrics-area"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
